@@ -1,0 +1,74 @@
+# Learn more about the syntax here:
+# https://docs.github.com/en/early-access/github/save-time-with-slash-commands/syntax-for-user-defined-slash-commands
+---
+trigger: GHAS_on_Azure_DevOps_Project_Board
+title: GHAS on Azure DevOps Project Board
+# Works everywhere by default. Uncomment to limit it to certain surfaces.
+surfaces:
+ - issue
+
+description: Creates a GHAS starter project board in Azure DevOps
+
+# Each command has one or more steps. You can add up to 25 steps.
+steps:
+- type: form
+  style: embedded
+  body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Create a Project Board for a GHAS Trial
+        
+        Hey there :wave:
+       
+        This is the form used to help create a GHAS Project Boards for Trials. Please fill in the relevant information below.
+        
+        Please note a repository will already need to exist within the GitHub Customers Organisation. If a repository does not exist, it will fail. 
+        
+        If you don't see the project board being created, check out the logs here: https://github.com/github/ghas-project-board
+        
+        Any questions, please feel free to reach out to a member of the GitHub Advanced Security field team :100
+        
+        Thanks!
+        - GHAS People :+1:
+        
+        ----------------------
+
+  # This displays a menu, similar to typing `@`.
+  - type: menu
+    id: some_options
+    label: Options
+    options:
+      - Item 1
+      - Item 2
+      - Item 3
+  # This displays a form with a dropdown, text input, and markdown editor.
+  - type: form
+    style: modal
+    body:
+      - type: dropdown
+        attributes:
+          label: Priority
+          options:
+          - label: "🟢 Normal"
+          - label: "⚠️ Important"
+          - label: "💥 Emergency"
+      - type: input
+        attributes:
+          label: Name
+          format: text
+      - type: textarea
+        attributes:
+          label: Message
+          placeholder: What happened?
+  # You can use slash commands to run GitHub Actions using repository_dispatch.
+  # Any input provided to menus or forms will be available from your workflow.
+  # - type: repository_dispatch
+  #   eventType: special_merge
+  # You can insert markdown into the markdown editor. The template property is
+  # processed as a Liquid template.
+  - type: fill
+    template: |-
+      Thank you for creating a slash command! See
+      Here is the data you provided: {{data}}
+      And here is some information about the command: {{command}}
