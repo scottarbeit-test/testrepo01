@@ -1,6 +1,3 @@
-# Learn more about the syntax here:
-# https://docs.github.com/en/early-access/github/save-time-with-slash-commands/syntax-for-user-defined-slash-commands
----
 trigger: GHAS_on_Azure_DevOps_Project_Board
 title: GHAS on Azure DevOps Project Board
 # Works everywhere by default. Uncomment to limit it to certain surfaces.
