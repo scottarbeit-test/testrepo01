@@ -1,4 +1,4 @@
-trigger: GHAS_on_Azure_DevOps_Project_Board
+trigger: GHASonAzure
 title: GHAS on Azure DevOps Project Board
 # Works everywhere by default. Uncomment to limit it to certain surfaces.
 surfaces:
